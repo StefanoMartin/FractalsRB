@@ -1,7 +1,4 @@
-require "chunky_png"
-require_relative "Similar"
-require_relative "Error"
-require "json"
+require "base64"
 
 module Fractal
   class Canvas
@@ -9,16 +6,18 @@ module Fractal
       @width = width
       @height = height
       @points = Fractal::Similar.new(**args).points
-      # @canvas = ChunkyPNG::Image.new(16, 16, ChunkyPNG::Color::TRANSPARENT)
       @canvas = ChunkyPNG::Canvas.new(width, height, ChunkyPNG::Color::WHITE)
       build
       picture = @canvas.to_image
       picture.save("#{__dir__}/filename.png", :interlace => true)
     end
 
+    def picture
+      Oj.dump({data: Base64.encode64(File.read("#{__dir__}/filename.png"))}, mode: :json)
+    end
+
     def build
       i = -1
-      # @canvas.setLocation()
       half_width = @width/2
       half_height = @height/2
 
@@ -39,11 +38,9 @@ module Fractal
   end
 end
 
-
-# Fractal::Canvas.new(repetition: 6, translation: [[21,23]], rotation: [ 30], size: [ 0.8])
-a = Time.now
-Fractal::Canvas.new(repetition: ARGV[0].to_i, translation: JSON.parse(ARGV[1]), rotation: JSON.parse(ARGV[2]), size: JSON.parse(ARGV[3]), size_square: JSON.parse(ARGV[4]), width: JSON.parse(ARGV[5]), height: JSON.parse(ARGV[6]))
-puts Time.now - a
+# a = Time.now
+# Fractal::Canvas.new(repetition: ARGV[0].to_i, translation: JSON.parse(ARGV[1]), rotation: JSON.parse(ARGV[2]), size: JSON.parse(ARGV[3]), size_square: JSON.parse(ARGV[4]), width: JSON.parse(ARGV[5]), height: JSON.parse(ARGV[6]))
+# puts Time.now - a
 
 # ruby lib/Canvas.rb 8 [[0,100],[50,150]] [45,-45] [0.7,0.7]
 # ruby lib/Canvas.rb 8 [[0,200],[100,300]] [45,-45] [0.72,0.72] 200 3000 3000
