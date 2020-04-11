@@ -1,0 +1,2 @@
+---
+BUNDLE_WITH: "core_websocket:core_test:core_debug:test:core_historical:historical"
