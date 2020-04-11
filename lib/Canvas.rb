@@ -41,7 +41,9 @@ end
 
 
 # Fractal::Canvas.new(repetition: 6, translation: [[21,23]], rotation: [ 30], size: [ 0.8])
+a = Time.now
 Fractal::Canvas.new(repetition: ARGV[0].to_i, translation: JSON.parse(ARGV[1]), rotation: JSON.parse(ARGV[2]), size: JSON.parse(ARGV[3]), size_square: JSON.parse(ARGV[4]), width: JSON.parse(ARGV[5]), height: JSON.parse(ARGV[6]))
+puts Time.now - a
 
 # ruby lib/Canvas.rb 8 [[0,100],[50,150]] [45,-45] [0.7,0.7]
 # ruby lib/Canvas.rb 8 [[0,200],[100,300]] [45,-45] [0.72,0.72] 200 3000 3000

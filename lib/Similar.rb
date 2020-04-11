@@ -11,7 +11,8 @@ module Fractal
         rotation_temp = rotation[i] * Math::PI / 180
         [translation[i], [Math.cos(rotation_temp), Math.sin(rotation_temp)], size[i]]
       end
-      @points = INITIAL_POINT.map{|t| [t[0]*size_square, t[1]*size_square]}
+      @new_points = INITIAL_POINT.map{|t| [t[0]*size_square, t[1]*size_square]}
+      @points = @new_points.dup
       repetition.times{|s| build}
     end
 
@@ -35,16 +36,17 @@ module Fractal
     end
 
     def build
-      new_points = @points.dup
+      new_points = []
       @iteration.each do |i|
-        @points.each do |po|
+        @new_points.each do |po|
           new_points << [
             i[2] * (i[1][0]*po[0]-i[1][1]*po[1]) + i[0][0],
             i[2] * (i[1][1]*po[0]+i[1][0]*po[1]) + i[0][1]
           ]
         end
       end
-      @points = new_points
+      @points += new_points
+      @new_points = new_points
     end
   end
 end
