@@ -2,10 +2,14 @@ require "base64"
 
 module Fractal
   class Canvas
-    def initialize(width: 1000, height: 1000, **args)
+    def initialize(width: 1000, height: 1000, repetition:, size_square: 100.0,
+      fractals:)
       @width = width
       @height = height
-      @points = Fractal::Similar.new(**args).points
+      fractal = Fractal::Similar.new(repetition: repetition, size_square: size_square)
+      fractals.each{|f| fractal.add(**f)}
+      fractal.build
+      @points = fractal.points
       @canvas = ChunkyPNG::Canvas.new(width, height, ChunkyPNG::Color::WHITE)
       build
       picture = @canvas.to_image

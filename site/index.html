@@ -5,10 +5,80 @@
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   crossorigin="anonymous"></script>
     <script src="javascript/main.js"></script>
+    <link rel="stylesheet" href="css/box.css"/>
+    <link rel="stylesheet" href="css/slider.css"/>
+    <link rel="stylesheet" href="css/button.css"/>
   </head>
 
   <body>
-    <p>This is a test!</p>
+    <h1>FractalsRB</h1>
+
+    <div class="box_fix">
+      <div class="box_input">
+        <label>Heigth: </label> <input type="number" value="1000">
+      </div>
+
+      <div class="box_input">
+        <label>Width: </label> <input type="number" value="1000">
+      </div>
+
+      <div class="box_input">
+        <label>Square size: </label> <input type="number" value="100">
+      </div>
+
+      <div class="slidecontainer">
+        <label>Repetitions: </label> <input type="range" min="0" max="15" value="11" class="slider"> <label>7</label>
+      </div>
+    </div>
+
+    <div class="boxes">
+      <div class="box_iteration">
+        <div class="slidecontainer">
+          <label>X: </label> <input type="range" min="-300" max="300" value="0" class="slider"> <label>0</label>
+        </div>
+
+        <div class="slidecontainer">
+          <label>Y: </label> <input type="range" min="-300" max="300" value="100" class="slider"> <label>100</label>
+        </div>
+
+        <div class="slidecontainer">
+          <label>Rotation: </label> <input type="range" min="0" max="360" value="45" class="slider"> <label>45</label>
+        </div>
+
+        <div class="slidecontainer">
+          <label>Size: </label> <input type="range" min="0" max="1" value="0.7" class="slider" step="0.01"> <label>0.7</label>
+        </div>
+
+        <a href="#" class="myButton">Remove</a>
+      </div>
+
+      <div class="box_iteration">
+        <div class="slidecontainer">
+          <label>X: </label> <input type="range" min="-300" max="300" value="50" class="slider"> <label>50</label>
+        </div>
+
+        <div class="slidecontainer">
+          <label>Y: </label> <input type="range" min="-300" max="300" value="150" class="slider"> <label>150</label>
+        </div>
+
+        <div class="slidecontainer">
+          <label>Rotation: </label> <input type="range" min="0" max="360" value="315" class="slider"> <label>315</label>
+        </div>
+
+        <div class="slidecontainer">
+          <label>Size: </label> <input type="range" min="0" max="1" value="0.7" class="slider" step="0.01"> <label>0.7</label>
+        </div>
+
+        <a href="#" class="myButton">Remove</a>
+      </div>
+    </div>
+
+    <div style="margin-bottom:1em">
+      <a href="#" class="addButton">Add</a>
+
+      <a href="#" class="buildButton">Build</a>
+    </div>
+
     <img id="main_img"></img>
   </body>
 </html>
