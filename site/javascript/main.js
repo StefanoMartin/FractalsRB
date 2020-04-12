@@ -29,21 +29,27 @@ var build = function(){
 			$("#main_img").attr("src", "data:image/png;base64," + data["data"]);
 		},
 		error: function(response,b,c){
-			// alert("Error: "+b+" with message: "+c);
 			console.log(response+"Error: "+b+" with message: "+c);
-		}
+		},
+		beforeSend: function(){ $("#loading").css("visibility", "visible"); },
+		complete: function(){ $("#loading").css("visibility", "hidden"); }
 	});
 }
 
 var clickEvents = function(){
-	$("body").on("mouseup", ".slider", change_value);
+	$("body").on("input", ".slider", change_value);
+	$("body").on("input", ".number_slide", change_value_slide);
 	$("body").on("mouseup", ".myButton", delete_fractal);
 	$(".addButton").on("mouseup", add_fractal);
 	$(".buildButton").on("mouseup", build);
 }
 
 var change_value = function(eventObject){
-	eventObject.target.parentElement.children[2].innerHTML = eventObject.target.value;
+	eventObject.target.parentElement.children[1].value = eventObject.target.value;
+}
+
+var change_value_slide = function(eventObject){
+	eventObject.target.parentElement.children[2].value = eventObject.target.value;
 }
 
 var delete_fractal = function(eventObject){
@@ -53,19 +59,19 @@ var delete_fractal = function(eventObject){
 var add_fractal = function(){
 	var m = `<div class="box_iteration">
 			<div class="slidecontainer">
-				<label>X: </label> <input type="range" min="-300" max="300" value="100" class="slider"> <label>100</label>
+				<label>X: </label> <input class="number_slide" type="number" value="100"> <input type="range" min="-300" max="300" value="100" class="slider">
 			</div>
 
 			<div class="slidecontainer">
-				<label>Y: </label> <input type="range" min="-300" max="300" value="100" class="slider"> <label>100</label>
+				<label>Y: </label> <input class="number_slide" type="number" value="100"> <input type="range" min="-300" max="300" value="100" class="slider">
 			</div>
 
 			<div class="slidecontainer">
-				<label>Rotation: </label> <input type="range" min="0" max="360" value="45" class="slider"> <label>45</label>
+				<label>Rotation: </label> <input class="number_slide" type="number" value="45"> <input type="range" min="0" max="360" value="45" class="slider">
 			</div>
 
 			<div class="slidecontainer">
-				<label>Size: </label> <input type="range" min="0" max="1" value="0.5" class="slider" step="0.01"> <label>0.5</label>
+				<label>Size: </label> <input class="number_slide" type="number" value="0.5" step="0.01"> <input type="range" min="0" max="1" value="0.5" class="slider" step="0.01">
 			</div>
 
 			<a href="#" class="myButton">Remove</a>

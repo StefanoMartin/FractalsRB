@@ -45,6 +45,18 @@
    margin-top: 0.4em;
 }
 
+.number_slide {
+  width: 60px;
+  height: 27px;
+  line-height: 1.65;
+  float: left;
+  display: block;
+  padding: 0;
+  margin: 0;
+  padding-left: 10px;
+  border: 1px solid #eee;
+}
+
 .boxes {
   margin-bottom: 1em;
 }
