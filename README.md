@@ -1,14 +1,16 @@
 FractalsRB
-=======================================================================0
+=======================================================================
 
 Fractals are something nice and fantastic to explore.  
 This is a small gem to create fractals similar to the [Pithagoras tree](https://en.wikipedia.org/wiki/Pythagoras_tree_(fractal)).
 
 The main idea is that these fractals are iterations of a translation, a rotation and a resizing of the original object.
 
-To install FinnhubRB: `gem install fractalsrb`
+To install FractalsRB: `gem install fractalsrb`
 
 To use it in your application: `require "fractalsrb"`
+
+This is a personal project, any stars for giving your support will make a man happy.
 
 ## How to use it
 
