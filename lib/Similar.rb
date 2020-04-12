@@ -1,5 +1,3 @@
-require "awesome_print"
-
 module Fractal
   class Similar
     INITIAL_POINT = [[0.0,0.0], [1.0,0.0], [1.0,1.0], [0.0,1.0]].freeze

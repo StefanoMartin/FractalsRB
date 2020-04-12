@@ -1,7 +1,7 @@
 require "fractalsrb"
 require "sinatra"
 require "oj"
-require "pry-byebug"
+require "base64"
 
 HEADERS = {
   "Access-Control-Allow-Origin" => "*",
@@ -20,7 +20,8 @@ class Front < Sinatra::Base
     begin
       request.body.rewind
       data = Oj.load(request.body.read, symbol_keys: true)
-      [200, HEADERS, Fractal::Canvas.new(**data).picture]
+      file = Fractal::Canvas.new(**data).picture
+      [200, HEADERS, Oj.dump({data: Base64.encode64(file.read())}, mode: :json)]
     rescue StandardError => e
       puts e.backtrace
       [500, HEADERS, e.message]

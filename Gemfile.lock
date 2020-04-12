@@ -1,9 +1,3 @@
-PATH
-  remote: .
-  specs:
-    fractalsrb (0.0.1)
-      chunky_png (>= 1.3.11)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -13,12 +7,14 @@ GEM
     byebug (11.1.1)
     chunky_png (1.3.11)
     coderay (1.1.2)
-    launchy (2.5.0)
-      addressable (~> 2.7)
+    fractalsrb (0.0.1)
+      chunky_png (>= 1.3.11)
+    launchy (2.4.3)
+      addressable (~> 2.3)
     method_source (1.0.0)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
-    oj (3.10.6)
+    oj (3.7.11)
     pry (0.13.0)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -42,10 +38,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  awesome_print (>= 1.7)
-  fractalsrb!
-  launchy
-  oj (>= 3.7.11)
+  awesome_print
+  fractalsrb
+  launchy (= 2.4.3)
+  oj (= 3.7.11)
   pry-byebug
   rake
   sinatra (= 2.0.8.1)
