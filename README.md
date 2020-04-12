@@ -1,4 +1,4 @@
-FractalsRB
+FractalsRB [![Gem Version](https://badge.fury.io/rb/fractalsrb.svg)](https://badge.fury.io/rb/fractalsrb)
 =======================================================================
 
 Fractals are something nice and fantastic to explore.  
