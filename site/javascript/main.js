@@ -36,12 +36,38 @@ var build = function(){
 	});
 }
 
+var randomBuild = function(){
+	$.each($(".boxes").children(), function(index, value){ value.remove(); });
+	var number_obj = Math.floor(Math.random() * 5) + 1;
+	for (let i = 0; i < number_obj; i++){ add_fractal(); }
+	$(".box_fix").children()[0].children[1].value = 1000
+	$(".box_fix").children()[0].children[2].value = $(".box_fix").children()[0].children[1].value;
+	$(".box_fix").children()[1].children[1].value = 1000
+	$(".box_fix").children()[1].children[2].value = $(".box_fix").children()[1].children[1].value;
+	$(".box_fix").children()[2].children[1].value = Math.floor(Math.random() * 200) + 50;
+	$(".box_fix").children()[2].children[2].value = $(".box_fix").children()[2].children[1].value;
+	$(".box_fix").children()[3].children[1].value = 12 - number_obj;
+	$(".box_fix").children()[3].children[2].value = $(".box_fix").children()[3].children[1].value;
+	$.each($(".boxes").children(), function(index, value){
+		value.children[0].children[1].value = Math.floor(Math.random() * 600) - 300;
+		value.children[0].children[2].value = value.children[0].children[1].value;
+		value.children[1].children[1].value = Math.floor(Math.random() * 600) - 300;
+		value.children[1].children[2].value = value.children[1].children[1].value;
+		value.children[2].children[1].value = Math.floor(Math.random() * 360);
+		value.children[2].children[2].value = value.children[2].children[1].value;
+		value.children[3].children[1].value = Math.random();
+		value.children[3].children[2].value = value.children[3].children[1].value;
+	});
+	build();
+}
+
 var clickEvents = function(){
 	$("body").on("input", ".slider", change_value);
 	$("body").on("input", ".number_slide", change_value_slide);
 	$("body").on("mouseup", ".myButton", delete_fractal);
 	$(".addButton").on("mouseup", add_fractal);
 	$(".buildButton").on("mouseup", build);
+	$(".randomButton").on("mouseup", randomBuild);
 }
 
 var change_value = function(eventObject){
