@@ -12,7 +12,7 @@ GEM
     launchy (2.4.3)
       addressable (~> 2.3)
     method_source (1.0.0)
-    mustermann (1.1.1)
+    mustermann (2.0.2)
       ruby2_keywords (~> 0.0.1)
     oj (3.7.11)
     pry (0.13.1)
@@ -22,17 +22,17 @@ GEM
       byebug (~> 11.0)
       pry (~> 0.13.0)
     public_suffix (4.0.6)
-    rack (2.2.2)
-    rack-protection (2.0.8.1)
+    rack (2.2.4)
+    rack-protection (2.2.3)
       rack
     rake (13.0.1)
-    ruby2_keywords (0.0.2)
-    sinatra (2.0.8.1)
-      mustermann (~> 1.0)
-      rack (~> 2.0)
-      rack-protection (= 2.0.8.1)
+    ruby2_keywords (0.0.5)
+    sinatra (2.2.3)
+      mustermann (~> 2.0)
+      rack (~> 2.2)
+      rack-protection (= 2.2.3)
       tilt (~> 2.0)
-    tilt (2.0.10)
+    tilt (2.0.11)
 
 PLATFORMS
   ruby
@@ -44,7 +44,7 @@ DEPENDENCIES
   oj (= 3.7.11)
   pry-byebug
   rake
-  sinatra (= 2.0.8.1)
+  sinatra (= 2.2.3)
 
 BUNDLED WITH
    2.0.2
